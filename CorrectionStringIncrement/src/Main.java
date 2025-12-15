@@ -1,5 +1,5 @@
 class Main {
-    static void main() {
+    public static void main(String[] args) {
         String txt = "Foo46";
         Splitted splitted = Utils.getSplitted(txt);
 
