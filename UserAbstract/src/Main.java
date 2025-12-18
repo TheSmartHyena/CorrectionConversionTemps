@@ -3,7 +3,7 @@ static String maskify(String txt) {
         return txt;
     }
 
-    return "#".repeat(txt.length() - 5) + txt.substring(txt.length() - 5);
+    return "#".repeat(txt.length() - 6) + txt.substring(txt.length() - 6);
 }
 
 void main() {
