@@ -1,19 +1,43 @@
+import java.util.List;
+
 void main() {
-    ArrayList<User> list = new ArrayList<>();
+    Config config = new Config(
+            1,
+            1,
+            List.of(
+                    new Rule(3, "Fizz"),
+                    new Rule(5, "Buzz")
+            )
+    );
+    // int N = 100;
+    int N = Integer.MAX_VALUE;
 
-    Admin admin = new Admin("Admin", "Admin");
-    VisiteurRegulier visiteur = new VisiteurRegulier("visitor", "Visiteur");
+    FizzBuzzIterator iterator = new FizzBuzzIterator(
+            config.start,
+            N,
+            config.step,
+            config.rules
+    );
 
-    list.add(admin);
-    list.add(visiteur);
+    while (iterator.hasNext()) {
+        IO.println(iterator.next());
+    }
+}
 
-    admin.ajouterUser(visiteur);
+void main1() {
+    int N = 100;
 
-    for (User item : list) {
-        item.connecter();
-
-        if (item instanceof Admin) {
-            ((Admin) item).afficherMdp();
+    for (int i = 0; i <= N; i++) {
+        String result = "";
+        if (i % 3 == 0) {
+            result += "Fizz";
         }
+        if (i % 5 == 0) {
+            result += "Buzz";
+        }
+        if (result.isEmpty()) {
+            result = Integer.toString(i);
+        }
+        System.out.println(result);
     }
 }
